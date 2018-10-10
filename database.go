@@ -37,10 +37,10 @@ func (db *Database) Count() int {
 }
 
 // GetTodos returns all Todo items.
-func (db *Database) GetTodos() *[]Todo {
+func (db *Database) GetTodos() []Todo {
 	db.Lock()
 	defer db.Unlock()
-	return &db.Todos
+	return db.Todos
 }
 
 // GetTodo returns the Todo item with the same ID as provided.
