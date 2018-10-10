@@ -34,7 +34,7 @@ func GetTodo(w http.ResponseWriter, r *http.Request) {
 
 // GetTodos returns all Todo items in the database.
 func GetTodos(w http.ResponseWriter, r *http.Request) {
-	todosJSON, err := json.Marshal(database.Todos)
+	todosJSON, err := json.Marshal(database.GetTodos())
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
