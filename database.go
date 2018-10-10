@@ -21,10 +21,6 @@ type Todo struct {
 	Done  bool   `json:"done"`
 }
 
-// The available characters to generate a random ID from.
-// Characters must be valid in a URL path for the API to work.
-const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-
 // Pseudo-random seed for the ID generator.
 var seededRand = rand.New(rand.NewSource(time.Now().UnixNano()))
 
@@ -120,6 +116,9 @@ func (db *Database) Populate() error {
 // NewTodoID returns a simple pseudo-random string of letters and number.
 // We don't need a too complicated generator for such a simple application as this.
 func NewTodoID() string {
+	// The available characters to generate a random ID from.
+	// Characters must be valid in a URL path for the API to work.
+	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 	b := make([]byte, 10)
 	for i := range b {
 		b[i] = charset[seededRand.Intn(len(charset))]
