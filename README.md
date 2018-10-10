@@ -1,0 +1,2 @@
+### Go CRUD REST todo API
+This is my first attempt at creating a REST API in Go with CRUD functionality. I decided to also create a small hand-crafted database for this simple API so that I didn't have to rely on any third party database. The only third party  library in this project is Chi, which is a simple router I used to avoid having to mess around with route parameters.
